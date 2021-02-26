@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 /**
  * @author Munin
- * @version 5.1.9
  * Created by Munin on 2021/2/25
  */
 public class FundingSimulation {
@@ -16,9 +15,8 @@ public class FundingSimulation {
         String fundCode = sc.nextLine();
         DetailsInitializer detailsInitializer = new DetailsInitializer(fundCode);
         List<FundDetailBean> beans = detailsInitializer.initFundDetail();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         printTitle();
-        beans.forEach(b -> print(b, format));
+        beans.forEach(FundingSimulation::print);
     }
 
     private static void printTitle() {
@@ -31,8 +29,8 @@ public class FundingSimulation {
         System.out.println();
     }
 
-    private static void print(FundDetailBean bean, SimpleDateFormat format) {
-        System.out.printf("%-10s", " | " + format.format(bean.getDate()));
+    private static void print(FundDetailBean bean) {
+        System.out.printf("%-10s", " | " + bean.getDateStr());
         System.out.printf("%-10s", " | " + formatDouble(bean.getUnitNV()));
         System.out.printf("%-10s", " | " + formatDouble(bean.getAccumulativeNV()));
         System.out.printf("%-10s", " | " + formatDouble(bean.getRateOfRaise()));

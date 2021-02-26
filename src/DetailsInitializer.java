@@ -13,7 +13,6 @@ import java.util.List;
 
 /**
  * @author Munin
- * @version 5.1.9
  * Created by Munin on 2021/2/25
  */
 public class DetailsInitializer {
@@ -60,9 +59,8 @@ public class DetailsInitializer {
     }
 
     private FundDetailBean handleTdElement(Elements tdElements) throws ParseException {
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         return FundDetailBean.create(
-                format.parse(tdElements.get(0).text()),
+                tdElements.get(0).text(),
                 strToDouble(tdElements.get(1).text()),
                 strToDouble(tdElements.get(2).text()),
                 percentageToDouble(tdElements.get(3).text()),

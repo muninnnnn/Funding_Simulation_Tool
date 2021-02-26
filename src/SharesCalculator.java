@@ -1,9 +1,12 @@
+import java.util.List;
+
 /**
  * @author Munin
- * @version 5.1.9
  * Created by Munin on 2021/2/26
  */
 public class SharesCalculator {
+
+    private List<FundDetailBean> detailBeanList;
 
 
 
@@ -15,7 +18,6 @@ public class SharesCalculator {
 
     }
 
-
     // 策略箱，通过每次循环更新策略中的参数
     class TacticsBox {
         // 昨日收益率
@@ -26,7 +28,6 @@ public class SharesCalculator {
         private double rate_lastWeek;
         // 过去20个交易日累计收益率
         private double rate_lastMonth;
-
 
         public TacticsBox(double rate_yesterday, double rate_lastSubscribe, double rate_lastWeek, double rate_lastMonth) {
             this.rate_yesterday = rate_yesterday;
@@ -75,6 +76,4 @@ public class SharesCalculator {
             this.rate_lastMonth = rate_lastMonth;
         }
     }
-
-
 }

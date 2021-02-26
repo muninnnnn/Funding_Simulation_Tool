@@ -1,14 +1,12 @@
-import java.util.Date;
 
 /**
  * @author Munin
- * @version 5.1.9
  * Created by Munin on 2021/2/25
  */
 public class FundDetailBean {
 
     // 日期
-    private Date date;
+    private String dateStr;
     // 单位净值
     private double unitNV;
     // 累计净值
@@ -20,8 +18,8 @@ public class FundDetailBean {
     // 赎回状态
     private String redeemStat;
 
-    private FundDetailBean(Date date, double unitNV, double accumulativeNV, double rateOfRaise, String subStat, String redeemStat) {
-        this.date = date;
+    private FundDetailBean(String dateStr, double unitNV, double accumulativeNV, double rateOfRaise, String subStat, String redeemStat) {
+        this.dateStr = dateStr;
         this.unitNV = unitNV;
         this.accumulativeNV = accumulativeNV;
         this.rateOfRaise = rateOfRaise;
@@ -29,16 +27,16 @@ public class FundDetailBean {
         this.redeemStat = redeemStat;
     }
 
-    public static FundDetailBean create(Date date, double unitNV, double accumulativeNV, double rateOfRaise, String subStat, String redeemStat) {
+    public static FundDetailBean create(String date, double unitNV, double accumulativeNV, double rateOfRaise, String subStat, String redeemStat) {
         return new FundDetailBean(date, unitNV, accumulativeNV, rateOfRaise, subStat, redeemStat);
     }
 
-    public Date getDate() {
-        return date;
+    public String getDateStr() {
+        return dateStr;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateStr(String dateStr) {
+        this.dateStr = dateStr;
     }
 
     public double getUnitNV() {
